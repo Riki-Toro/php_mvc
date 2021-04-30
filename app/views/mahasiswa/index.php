@@ -1,7 +1,15 @@
 
 <div class="container mt-2">
+
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-lg-6">
+            <!-- panggil flasher dan method flash -->
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#formModal">
