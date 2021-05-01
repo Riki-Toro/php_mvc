@@ -8,12 +8,12 @@ class Mahasiswa_model {
     }
 
     public function getAllMahasiswa() {
-        $this->db->query('SELECT * FROM ' . $this->tabel);
+        $this->db->query("SELECT * FROM " . $this->tabel);
         return $this->db->resultSet();
     }
 
     public function getMahasiswaById($id) {
-        $this->db->query('SELECT * FROM ' . $this->tabel . ' WHERE id=:id');
+        $this->db->query("SELECT * FROM " . $this->tabel . " WHERE id = :id");
         $this->db->bind('id', $id);
         return $this->db->single();
     }
@@ -25,6 +25,17 @@ class Mahasiswa_model {
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('nim', $data['nim']);
         $this->db->bind('jurusan', $data['jurusan']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function hapusDataMahasiswa($id) {
+        $query = "DELETE FROM mahasiswa WHERE id = :id";
+
+        $this->db->query($query);
+        $this->db->bind('id', $id);
 
         $this->db->execute();
 
